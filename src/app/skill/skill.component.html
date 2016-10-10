@@ -1,0 +1,22 @@
+<div class="starter-template">
+  <h1>{{title}}</h1>
+  
+  <br/>
+
+  <table class="table">
+    <tr>
+      <th>Nom</th>
+      <th>Coût</th>
+      <th>Dexcription</th>
+      <th>&nbsp;</th>
+    </tr>
+    <tr *ngFor='let skill of skills'>
+      <td>{{skill.name}}</td>
+      <td>{{skill.cost}}</td>
+      <td>{{skill.description}}</td>
+      <td><a class="btn btn-primary btn-sm" routerLink="/skills/{{skill._id.$oid}}/edit" routerLinkActive="active">Modifier</a></td>
+    </tr>
+  </table>
+
+  <a class="btn btn-success" routerLink="/skills/new" routerLinkActive="active">Ajouter une compétence</a>
+</div>

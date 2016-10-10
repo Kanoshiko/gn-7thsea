@@ -1,0 +1,23 @@
+<form novalidate (ngSubmit)="validate()" #skillForm="ngForm">
+  
+  <div class="form-group" [class.has-error]="!name.valid && name.dirty">
+    <label class="control-label" for="name">Nom</label>
+    <input type="text" id="name" name="name" class="form-control"
+      required [(ngModel)]="_skill.name" #name="ngModel">
+  </div>
+
+  <div class="form-group" [class.has-error]="!cost.valid && cost.dirty">
+    <label class="control-label" for="cost">Coût</label>
+    <input type="text" id="cost" name="cost" class="form-control"
+      required [(ngModel)]="_skill.cost" #cost="ngModel">
+  </div>
+
+  <div class="form-group" [class.has-error]="!description.valid && description.dirty">
+    <label class="control-label" for="description">Description</label>
+    <textarea id="description" name="description" class="form-control"
+      required [(ngModel)]="_skill.description" #description="ngModel">
+    </textarea>
+  </div>
+
+  <button type="submit" class="btn btn-success" [disabled]="!skillForm.valid">Valider</button>
+</form>
