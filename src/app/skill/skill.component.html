@@ -10,7 +10,7 @@
       <th>Dexcription</th>
       <th>&nbsp;</th>
     </tr>
-    <tr *ngFor='let skill of skills'>
+    <tr *ngFor='let skill of (skills|async)'>
       <td>{{skill.name}}</td>
       <td>{{skill.cost}}</td>
       <td>{{skill.description}}</td>

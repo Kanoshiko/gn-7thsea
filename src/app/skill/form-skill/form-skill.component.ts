@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Skill } from '../skill'
 import { SkillService } from '../skill.service';
+import { Http, Response, Headers } from '@angular/http';
 
 @Component({
   selector: 'app-form-skill',
@@ -9,7 +10,7 @@ import { SkillService } from '../skill.service';
   styleUrls: ['./form-skill.component.css']
 })
 export class FormSkillComponent implements OnInit {
-  private _skill;
+  private skill;
   
   constructor(
     private route: ActivatedRoute,
@@ -18,17 +19,17 @@ export class FormSkillComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
-      let id = +params['id']; // (+) converts string 'id' to a number
+      let id = params['id'];
       if(!id) {
-        this._skill = new Skill();
+        this.skill = new Skill();
       } else {
-        this.skillService.getSkill(id).then(skill => this._skill = skill);
+        this.skill = this.skillService.getSkill(id);
       }
     });
   }
 
   validate(): void {
-    this.skillService.postSkill(this._skill)
+    this.skillService.postSkill(this.skill)
      .subscribe(() => this.router.navigate(['/skills']));
   }
 
