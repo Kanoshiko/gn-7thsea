@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SkillService } from './skill.service';
-import { Skill } from './skill';
+import { Skill } from '../shared/entity/skill'
+import { SkillService } from '../shared/service/skill.service';
 import { Observable } from 'rxjs/Rx';
 
 

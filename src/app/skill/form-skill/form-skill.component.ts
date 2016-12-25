@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Skill } from '../skill'
-import { SkillService } from '../skill.service';
+import { Skill } from '../../shared/entity/skill'
+import { SkillService } from '../../shared/service/skill.service';
 import { Http, Response, Headers } from '@angular/http';
 
 @Component({
