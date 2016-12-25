@@ -1,0 +1,44 @@
+<form novalidate (ngSubmit)="validate()" #characterForm="ngForm">
+  
+  <div class="form-group" [class.has-error]="!playerName.valid && playerName.dirty">
+    <label class="control-label" for="playerName">Nom du joueur</label>
+    <input type="text" id="playerName" name="playerName" class="form-control"
+      required [(ngModel)]="character.playerName" #playerName="ngModel">
+  </div>
+
+  <div class="form-group" [class.has-error]="!name.valid && name.dirty">
+    <label class="control-label" for="name">Nom</label>
+    <input type="text" id="name" name="name" class="form-control"
+      required [(ngModel)]="character.name" #name="ngModel">
+  </div>
+
+  <div class="form-group" [class.has-error]="!nationality.valid && nationality.dirty">
+    <label class="control-label" for="nationality">Nationalité</label>
+    <select class="form-control" name="select" required [(ngModel)]="character.nationality" #nationality="ngModel">
+      <option *ngFor="let nationality of (nationalities|async)" value="{{nationality.key}}">{{nationality.name}}</option>
+    </select>
+  </div>
+
+  <div class="form-group" [class.has-error]="!background.valid && background.dirty">
+    <label class="control-label" for="background">Historique</label>
+    <textarea id="background" name="background" class="form-control"
+      required [(ngModel)]="character.background" #background="ngModel">
+    </textarea>
+  </div>
+
+  <h2>Compétences</h2>
+  <table class="table">
+    <tr>
+      <th width="15%">Nom</th>
+      <th width="70%">Dexcription</th>
+      <th width="15%">&nbsp;</th>
+    </tr>
+    <tr *ngFor='let skill of (skills|async)'>
+      <td>{{skill.name}}</td>
+      <td>{{skill.description}}</td>
+      <td><button class="btn btn-primary btn-sm" (click)="character.addSkill(skill)">Acheter pour {{skill.cost}} points</button></td>
+    </tr>
+  </table>
+
+  <button type="submit" class="btn btn-success" [disabled]="!characterForm.valid">Valider</button>
+</form>
