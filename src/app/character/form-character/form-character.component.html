@@ -27,13 +27,21 @@
   </div>
 
   <h2>Compétences</h2>
+
+  <ul>
+    <li *ngFor="let skill of character.skills">
+      {{skill.name}} - {{skill.cost}} points
+    </li>
+  </ul>
+
+  <h2>Listes de compétences</h2>
   <table class="table">
     <tr>
       <th width="15%">Nom</th>
       <th width="70%">Dexcription</th>
       <th width="15%">&nbsp;</th>
     </tr>
-    <tr *ngFor='let skill of (skills|async)'>
+    <tr *ngFor="let skill of (skills|async)">
       <td>{{skill.name}}</td>
       <td>{{skill.description}}</td>
       <td><button class="btn btn-primary btn-sm" (click)="character.addSkill(skill)">Acheter pour {{skill.cost}} points</button></td>
