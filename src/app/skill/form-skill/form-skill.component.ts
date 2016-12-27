@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Skill } from '../../shared/entity/skill'
 import { SkillService } from '../../shared/service/skill.service';
 import { Http, Response, Headers } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-form-skill',
@@ -10,7 +11,7 @@ import { Http, Response, Headers } from '@angular/http';
   styleUrls: ['./form-skill.component.css']
 })
 export class FormSkillComponent implements OnInit {
-  private skill;
+  private skill: Skill;
   
   constructor(
     private route: ActivatedRoute,
@@ -18,13 +19,11 @@ export class FormSkillComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.route.params.forEach((params: Params) => {
-      let id = params['id'];
-      if(!id) {
-        this.skill = new Skill();
-      } else {
-        this.skill = this.skillService.getSkill(id);
-      }
+    this.skill = new Skill();
+
+    this.route.params.subscribe((params: Params) => {
+      this.skillService.getSkill(params['id'])
+        .subscribe(skill => this.skill = skill);
     });
   }
 
