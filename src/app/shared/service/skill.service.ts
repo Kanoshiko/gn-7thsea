@@ -34,4 +34,11 @@ export class SkillService {
         return response.json();
       });
   }
+
+  deleteSkill(id: string) {
+    return this._http.delete(`${API_URL}/skills/${id}${PARAMS_API_URL}`)
+      .map((response: Response) => {
+        return response.json();
+      });
+  }
 }

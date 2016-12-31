@@ -19,6 +19,8 @@ import { FormCharacterComponent } from './character/form-character/form-characte
 import { SkillService } from './shared/service/skill.service';
 import { CharacterService } from './shared/service/character.service';
 import { NationalityService } from './shared/service/nationality.service';
+import { DeleteAdvantageComponent } from './advantage/delete-advantage/delete-advantage.component';
+import { DeleteSkillComponent } from './skill/delete-skill/delete-skill.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { NationalityService } from './shared/service/nationality.service';
     HomeComponent,
     FormSkillComponent,
     CharacterComponent,
-    FormCharacterComponent
+    FormCharacterComponent,
+    DeleteSkillComponent
   ],
   imports: [
     BrowserModule,

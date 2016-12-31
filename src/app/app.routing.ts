@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { SkillComponent } from './skill/skill.component';
 import { FormSkillComponent } from './skill/form-skill/form-skill.component';
+import { DeleteSkillComponent } from './skill/delete-skill/delete-skill.component';
 import { FormCharacterComponent } from './character/form-character/form-character.component';
 
 const appRoutes: Routes = [
@@ -12,7 +13,8 @@ const appRoutes: Routes = [
   { path: 'skills', component: SkillComponent },
   { path: 'skills/new', component: FormSkillComponent },
   { path: 'skills/:id/edit', component: FormSkillComponent },
-  { path: 'character/new', component: FormCharacterComponent },
+  { path: 'skills/:id/delete', component: DeleteSkillComponent },
+  { path: 'character/new', component: FormCharacterComponent }
 ];
 
 export const appRoutingProviders: any[] = [
