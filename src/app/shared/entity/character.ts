@@ -12,6 +12,7 @@ export class Character {
     public panache: number;
     public hasCombatSchool: boolean = false;
     public skills: Array<Skill> = [];
+    public budget: number = 100;
 
     public actionPoint(): number { 
         if (this.hasCombatSchool) {
@@ -22,19 +23,26 @@ export class Character {
     }
 
     addSkill(skill: Skill) {
-        console.log(`skill add to ${skill.name}`);
-        console.log(!this.skills.indexOf(skill));
-        //if(!this.skills.indexOf(skill)) {
+        if(this.skills.indexOf(skill) == -1) {
             this.skills.push(skill);
-            console.log(`skill ${skill.name} added`);
-        //}
-        console.debug(`skills : ${this.skills}`);
+            this.budget = Number(this.budget) - Number(skill.cost);
+        }
     }
 
     removeSkill(skill: Skill) {
-        const pos = this.skills.indexOf(skill);
-        if(pos) {
-            this.skills.slice(pos, 1);
+        this.skills = this.skills.filter(_skill => {
+                if(_skill === skill) {
+                    this.budget = Number(this.budget) + Number(skill.cost);
+                    return false;
+                }
+                return true;
+            }
+        )
+    }
+
+    hasThisSkill(skill: Skill) {
+        return this.skills.indexOf(skill) != -1;
+    }
         }
     }
 }
