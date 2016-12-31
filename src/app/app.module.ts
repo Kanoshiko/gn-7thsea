@@ -11,11 +11,14 @@ import { routing, appRoutingProviders } from './app.routing';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 
+import { AdvantageComponent } from './advantage/advantage.component';
+import { FormAdvantageComponent } from './advantage/form-advantage/form-advantage.component';
 import { SkillComponent } from './skill/skill.component';
 import { FormSkillComponent } from './skill/form-skill/form-skill.component';
 import { CharacterComponent } from './character/character.component';
 import { FormCharacterComponent } from './character/form-character/form-character.component';
 
+import { AdvantageService } from './shared/service/advantage.service';
 import { SkillService } from './shared/service/skill.service';
 import { CharacterService } from './shared/service/character.service';
 import { NationalityService } from './shared/service/nationality.service';
@@ -26,11 +29,14 @@ import { DeleteSkillComponent } from './skill/delete-skill/delete-skill.componen
   declarations: [
     AppComponent,
     MenuComponent,
+    AdvantageComponent,
     SkillComponent,
     HomeComponent,
+    FormAdvantageComponent,
     FormSkillComponent,
     CharacterComponent,
     FormCharacterComponent,
+    DeleteAdvantageComponent,
     DeleteSkillComponent
   ],
   imports: [
@@ -41,6 +47,7 @@ import { DeleteSkillComponent } from './skill/delete-skill/delete-skill.componen
     routing
   ],
   providers: [
+    AdvantageService,
     SkillService,
     CharacterService,
     NationalityService,
