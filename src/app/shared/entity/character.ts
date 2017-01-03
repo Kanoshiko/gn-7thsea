@@ -1,4 +1,5 @@
 import { Skill } from './skill';
+import { Advantage } from './advantage';
 import { Nationality } from './nationality';
 
 export class Character {
@@ -12,6 +13,7 @@ export class Character {
     public panache: number;
     public hasCombatSchool: boolean = false;
     public skills: Array<Skill> = [];
+    public advantages: Array<Advantage> = [];
     public budget: number = 100;
 
     public actionPoint(): number { 
@@ -43,6 +45,28 @@ export class Character {
     hasThisSkill(skill: Skill) {
         return this.skills.indexOf(skill) != -1;
     }
+
+/*
+    addAdvantage(advantage: Advantage) {
+        if(this.advantages.indexOf(advantage) == -1) {
+            this.advantages.push(advantage);
+            this.budget = Number(this.budget) - Number(advantage.cost);
         }
     }
+
+    removeAdvantage(advantage: Advantage) {
+        this.advantages = this.advantages.filter(_advantage => {
+                if(_advantage === advantage) {
+                    this.budget = Number(this.budget) + Number(advantage.cost);
+                    return false;
+                }
+                return true;
+            }
+        )
+    }
+
+    hasThisAdvantage(advantage: Advantage) {
+        return this.advantages.indexOf(advantage) != -1;
+    }
+*/
 }
