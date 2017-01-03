@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
+
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+ 
 import { AppComponent } from './app.component';
+import { MarkdownModule } from 'angular2-markdown';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { routing, appRoutingProviders } from './app.routing';
 
 import { MenuComponent } from './menu/menu.component';
@@ -24,6 +26,7 @@ import { CharacterService } from './shared/service/character.service';
 import { NationalityService } from './shared/service/nationality.service';
 import { DeleteAdvantageComponent } from './advantage/delete-advantage/delete-advantage.component';
 import { DeleteSkillComponent } from './skill/delete-skill/delete-skill.component';
+import { PopupSkillComponent } from './character/form-character/popup-skill/popup-skill.component';
 
 @NgModule({
   declarations: [
@@ -37,14 +40,16 @@ import { DeleteSkillComponent } from './skill/delete-skill/delete-skill.componen
     CharacterComponent,
     FormCharacterComponent,
     DeleteAdvantageComponent,
-    DeleteSkillComponent
+    DeleteSkillComponent,
+    PopupSkillComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     NgbModule,
-    routing
+    routing,
+    MarkdownModule    
   ],
   providers: [
     AdvantageService,

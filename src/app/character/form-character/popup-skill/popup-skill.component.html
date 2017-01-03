@@ -1,0 +1,27 @@
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Liste des compétences disponibles</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <tr *ngFor="let skill of (skills|async)" >
+            <td *ngIf="!character.hasThisSkill(skill)">
+              <h3>{{skill.name}}</h3>
+              <markdown>{{skill.description}}</markdown>
+              <button class="btn btn-primary btn-sm" (click)="character.addSkill(skill)" *ngIf="!character.hasThisSkill(skill)">{{skill.cost}} points</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>

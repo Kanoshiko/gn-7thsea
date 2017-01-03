@@ -6,6 +6,7 @@ import {API_URL, PARAMS_API_URL} from '../config'
 
 @Injectable()
 export class CharacterService {
+  private character: Character;
   
   constructor(private _http: Http) { }
 
@@ -33,5 +34,16 @@ export class CharacterService {
       .map((response: Response) => {
         return response.json();
       });
+  }
+
+  newCharacter(id?: string) {
+    if (!this.character) {
+      this.character = new Character();  
+    }
+
+    if (id) {
+      this.getCharacter(id).subscribe(character => this.character = character);
+    }
+    return this.character;
   }
 }
