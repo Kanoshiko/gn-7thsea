@@ -13,7 +13,7 @@
           <tr *ngFor="let skill of (skills|async)" >
             <td *ngIf="!character.hasThisSkill(skill)">
               <h3>{{skill.name}}</h3>
-              <markdown>{{skill.description}}</markdown>
+              {{skill.description}}
               <button class="btn btn-primary btn-sm" (click)="character.addSkill(skill)" *ngIf="!character.hasThisSkill(skill)">{{skill.cost}} points</button>
             </td>
           </tr>
