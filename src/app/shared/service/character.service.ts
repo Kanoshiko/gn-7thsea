@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Character } from '../entity/character';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import {API_URL, PARAMS_API_URL} from '../config'
+import {API_URL, PARAMS_API_URL} from '../config';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class CharacterService {

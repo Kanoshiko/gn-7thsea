@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Nationality } from '../entity/nationality';
 import { Observable } from 'rxjs/Rx';
 import { Http, Response, Headers } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class NationalityService {
