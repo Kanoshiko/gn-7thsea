@@ -13,7 +13,7 @@
     <tr *ngFor='let skill of (skills|async)'>
       <td>{{skill.name}}</td>
       <td>{{skill.cost}}</td>
-      <td>{{skill.description}}</td>
+      <td [innerHTML]="skill.description|markdown"></td>
       <td>
         <a class="btn btn-primary btn-sm" routerLink="/skills/{{skill._id.$oid}}/edit" routerLinkActive="active">Modifier</a>
         <a class="btn btn-danger btn-sm" routerLink="/skills/{{skill._id.$oid}}/delete" routerLinkActive="active">Suppprimer</a>

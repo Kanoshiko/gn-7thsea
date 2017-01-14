@@ -27,6 +27,8 @@ import { DeleteAdvantageComponent } from './advantage/delete-advantage/delete-ad
 import { DeleteSkillComponent } from './skill/delete-skill/delete-skill.component';
 import { PopupSkillComponent } from './character/form-character/popup-skill/popup-skill.component';
 
+import { MarkdownPipe } from './shared/pipes/markdown.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,8 @@ import { PopupSkillComponent } from './character/form-character/popup-skill/popu
     FormCharacterComponent,
     DeleteAdvantageComponent,
     DeleteSkillComponent,
-    PopupSkillComponent
+    PopupSkillComponent,
+    MarkdownPipe
   ],
   imports: [
     BrowserModule,

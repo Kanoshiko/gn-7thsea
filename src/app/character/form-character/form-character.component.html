@@ -57,7 +57,7 @@
             <tr *ngFor="let skill of character.skills" >
               <td width="70%" *ngIf="character.hasThisSkill(skill)">
                 <h3>{{skill.name}}</h3>
-                <pre>{{skill.description}}</pre>
+                <div [innerHTML]="skill.description|markdown"></div>
                 <button class="btn btn-danger btn-sm" (click)="character.removeSkill(skill)" *ngIf="character.hasThisSkill(skill)">Supprimer</button>
               </td>
             </tr>
