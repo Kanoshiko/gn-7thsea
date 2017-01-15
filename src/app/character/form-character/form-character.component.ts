@@ -21,13 +21,8 @@ export class FormCharacterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.forEach((params: Params) => {
-      let id = params['id'];
-      if (!id) {
-        this.character = this.characterService.newCharacter();
-      } else {
-        this.character = this.characterService.newCharacter(id);
-      }
+    this.route.params.subscribe((params: Params) => {
+      this.character = this.characterService.newCharacter(params['id']);
     });
 
     this.nationalities = this.nationalityService.getNationalities();
