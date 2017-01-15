@@ -1,4 +1,10 @@
 <div class="starter-template">
   <h1>{{title}}</h1>
-  <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+
+  <p class="lead">Vous pouvez modifier un personnage déjà créé en utilisant son numéro d'identifiant</p>
+
+  <form novalidate (ngSubmit)="loadCharacter()" class="form-inline">
+    <input name="id" type="text" class="form-control" [(ngModel)]="idChar"/>
+    <button type="submit" class="btn btn-success">Afficher</button>
+  </form>
 </div>

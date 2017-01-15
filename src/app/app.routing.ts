@@ -21,7 +21,8 @@ const appRoutes: Routes = [
   {path: 'skills/new', component: FormSkillComponent},
   {path: 'skills/:id/edit', component: FormSkillComponent},
   {path: 'skills/:id/delete', component: DeleteSkillComponent},
-  {path: 'character/new', component: FormCharacterComponent}
+  {path: 'character/new', component: FormCharacterComponent},
+  {path: 'character/:id/edit', component: FormCharacterComponent}
 ];
 
 export const appRoutingProviders: any[] = [];
