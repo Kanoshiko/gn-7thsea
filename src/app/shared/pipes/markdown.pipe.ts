@@ -3,10 +3,10 @@ import { PipeTransform, Pipe } from '@angular/core';
 
 @Pipe({ name: 'markdown' })
 export class MarkdownPipe implements PipeTransform {
-    transform(value, args) {
-        const showdown = require('showdown');
+  transform(value, args) {
+    const showdown = require('showdown');
 
-        let converter = new showdown.Converter();
-        return converter.makeHtml(value);
-    }
+    let converter = new showdown.Converter();
+    return converter.makeHtml(value);
+  }
 }

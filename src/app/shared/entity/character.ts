@@ -3,48 +3,55 @@ import { Advantage } from './advantage';
 import { Nationality } from './nationality';
 
 export class Character {
-    public _id: { $oid: string; };
-    public playerName: string;
-    public name: string;
-    public background: string;
-    public nationality: Nationality;
-    public physical: number;
-    public will: number;
-    public panache: number;
-    public hasCombatSchool: boolean = false;
-    public skills: Array<Skill> = [];
-    public advantages: Array<Advantage> = [];
-    public budget: number = 100;
+  public _id: { $oid: string; };
 
-    public actionPoint(): number { 
-        if (this.hasCombatSchool) {
-            return 2 * this.physical + this.will;
-        } else {
-            return this.physical + 2 * this.will;
-        }
-    }
+  //informations joueurs
+  public playerName: string;
+  public playerEmail: string;
 
-    addSkill(skill: Skill) {
-        if(this.skills.indexOf(skill) == -1) {
-            this.skills.push(skill);
-            this.budget = Number(this.budget) - Number(skill.cost);
-        }
-    }
+  public budget: number = 100;
+  public name: string;
+  public background: string;
+  public nationality: Nationality;
 
-    removeSkill(skill: Skill) {
-        this.skills = this.skills.filter(_skill => {
-                if(_skill === skill) {
-                    this.budget = Number(this.budget) + Number(skill.cost);
-                    return false;
-                }
-                return true;
-            }
-        )
-    }
+  //caractéristiques
+  public physical: number;
+  public will: number;
+  public panache: number;
 
-    hasThisSkill(skill: Skill) {
-        return this.skills.indexOf(skill) != -1;
+  public skills: Array<Skill> = [];
+  public advantages: Array<Advantage> = [];
+  public hasCombatSchool: boolean = false;
+
+  public actionPoint(): number {
+    if (this.hasCombatSchool) {
+      return 2 * this.physical + this.will;
+    } else {
+      return this.physical + 2 * this.will;
     }
+  }
+
+  addSkill(skill: Skill) {
+    if(this.skills.indexOf(skill) == -1) {
+      this.skills.push(skill);
+      this.budget = Number(this.budget) - Number(skill.cost);
+    }
+  }
+
+  removeSkill(skill: Skill) {
+    this.skills = this.skills.filter(_skill => {
+      if(_skill === skill) {
+        this.budget = Number(this.budget) + Number(skill.cost);
+        return false;
+      }
+      return true;
+      }
+    )
+  }
+
+  hasThisSkill(skill: Skill) {
+    return this.skills.indexOf(skill) != -1;
+  }
 
 /*
     addAdvantage(advantage: Advantage) {

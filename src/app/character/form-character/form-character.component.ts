@@ -37,7 +37,7 @@ export class FormCharacterComponent implements OnInit {
 
   validate(): void {
     this.characterService.postCharacter(this.character)
-     .subscribe();
+      .subscribe();
   }
 
 }

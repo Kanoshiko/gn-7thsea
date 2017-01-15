@@ -12,7 +12,7 @@ import { Observable } from 'rxjs/Rx';
 })
 export class FormSkillComponent implements OnInit {
   private skill: Skill;
-  
+
   constructor(
     private route: ActivatedRoute,
     private skillService: SkillService,
@@ -29,7 +29,7 @@ export class FormSkillComponent implements OnInit {
 
   validate(): void {
     this.skillService.postSkill(this.skill)
-     .subscribe(() => this.router.navigate(['/skills']));
+      .subscribe(() => this.router.navigate(['/skills']));
   }
 
 }

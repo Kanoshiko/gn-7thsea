@@ -24,5 +24,4 @@ export class PopupSkillComponent implements OnInit {
     this.character = this.characterService.newCharacter();
     this.skills = this.skillService.getSkills();
   }
-
 }

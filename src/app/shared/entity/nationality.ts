@@ -1,6 +1,6 @@
 export class Nationality { 
-    constructor (
-        public key: string, 
-        public name: string
-    ) { }
+  constructor (
+    public key: string,
+    public name: string
+  ) { }
 }

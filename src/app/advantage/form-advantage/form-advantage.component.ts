@@ -12,7 +12,7 @@ import { Observable } from 'rxjs/Rx';
 })
 export class FormAdvantageComponent implements OnInit {
   private advantage: Advantage;
-  
+
   constructor(
     private route: ActivatedRoute,
     private advantageService: AdvantageService,
@@ -29,7 +29,7 @@ export class FormAdvantageComponent implements OnInit {
 
   validate(): void {
     this.advantageService.postAdvantage(this.advantage)
-     .subscribe(() => this.router.navigate(['/advantages']));
+      .subscribe(() => this.router.navigate(['/advantages']));
   }
 
 }
