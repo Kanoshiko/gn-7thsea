@@ -1,9 +1,9 @@
-import { Skill } from './skill';
-import { Advantage } from './advantage';
-import { Nationality } from './nationality';
+import {Skill} from './skill';
+import {Advantage} from './advantage';
+import {Nationality} from './nationality';
 
 export class Character {
-  public _id: { $oid: string; };
+  public _id: {$oid: string;};
 
   //informations joueurs
   public playerName: string;
@@ -32,7 +32,7 @@ export class Character {
   }
 
   addSkill(skill: Skill) {
-    if(this.skills.indexOf(skill) == -1) {
+    if (this.skills.indexOf(skill) == -1) {
       this.skills.push(skill);
       this.budget = Number(this.budget) - Number(skill.cost);
     }
@@ -40,11 +40,11 @@ export class Character {
 
   removeSkill(skill: Skill) {
     this.skills = this.skills.filter(_skill => {
-      if(_skill === skill) {
-        this.budget = Number(this.budget) + Number(skill.cost);
-        return false;
-      }
-      return true;
+        if (_skill === skill) {
+          this.budget = Number(this.budget) + Number(skill.cost);
+          return false;
+        }
+        return true;
       }
     )
   }
@@ -53,27 +53,25 @@ export class Character {
     return this.skills.indexOf(skill) != -1;
   }
 
-/*
-    addAdvantage(advantage: Advantage) {
-        if(this.advantages.indexOf(advantage) == -1) {
-            this.advantages.push(advantage);
-            this.budget = Number(this.budget) - Number(advantage.cost);
+/*  addAdvantage(advantage: Advantage) {
+    if (this.advantages.indexOf(advantage) == -1) {
+      this.advantages.push(advantage);
+      this.budget = Number(this.budget) - Number(advantage.cost);
+    }
+  }
+
+  removeAdvantage(advantage: Advantage) {
+    this.advantages = this.advantages.filter(_advantage => {
+        if (_advantage === advantage) {
+          this.budget = Number(this.budget) + Number(advantage.cost);
+          return false;
         }
-    }
+        return true;
+      }
+    )
+  }
 
-    removeAdvantage(advantage: Advantage) {
-        this.advantages = this.advantages.filter(_advantage => {
-                if(_advantage === advantage) {
-                    this.budget = Number(this.budget) + Number(advantage.cost);
-                    return false;
-                }
-                return true;
-            }
-        )
-    }
-
-    hasThisAdvantage(advantage: Advantage) {
-        return this.advantages.indexOf(advantage) != -1;
-    }
-*/
+  hasThisAdvantage(advantage: Advantage) {
+    return this.advantages.indexOf(advantage) != -1;
+  }*/
 }

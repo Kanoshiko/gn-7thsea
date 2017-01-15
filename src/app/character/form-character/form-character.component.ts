@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Character } from '../../shared/entity/character';
-import { Nationality } from '../../shared/entity/nationality';
-import { NationalityService } from '../../shared/service/nationality.service';
-import { CharacterService } from '../../shared/service/character.service';
-import { Http, Response, Headers } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+import {Component, OnInit} from '@angular/core';
+import {Router, ActivatedRoute, Params} from '@angular/router';
+import {Nationality} from '../../shared/entity/nationality';
+import {NationalityService} from '../../shared/service/nationality.service';
+import {CharacterService} from '../../shared/service/character.service';
+import {Observable} from 'rxjs/Rx';
 
 @Component({
   selector: 'app-form-character',
@@ -16,16 +14,16 @@ export class FormCharacterComponent implements OnInit {
   private character;
   private nationalities: Observable<Nationality[]>;
 
-  constructor(
-    private route: ActivatedRoute,
-    private characterService: CharacterService,
-    private nationalityService: NationalityService,
-    private router: Router) { }
+  constructor(private route: ActivatedRoute,
+              private characterService: CharacterService,
+              private nationalityService: NationalityService,
+              private router: Router) {
+  }
 
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
       let id = params['id'];
-      if(!id) {
+      if (!id) {
         this.character = this.characterService.newCharacter();
       } else {
         this.character = this.characterService.newCharacter(id);

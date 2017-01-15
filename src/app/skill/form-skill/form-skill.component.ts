@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Skill } from '../../shared/entity/skill'
-import { SkillService } from '../../shared/service/skill.service';
-import { Http, Response, Headers } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+import {Component, OnInit} from '@angular/core';
+import {Router, ActivatedRoute, Params} from '@angular/router';
+import {Skill} from '../../shared/entity/skill'
+import {SkillService} from '../../shared/service/skill.service';
 
 @Component({
   selector: 'app-form-skill',
@@ -13,10 +11,10 @@ import { Observable } from 'rxjs/Rx';
 export class FormSkillComponent implements OnInit {
   private skill: Skill;
 
-  constructor(
-    private route: ActivatedRoute,
-    private skillService: SkillService,
-    private router: Router) { }
+  constructor(private route: ActivatedRoute,
+              private skillService: SkillService,
+              private router: Router) {
+  }
 
   ngOnInit() {
     this.skill = new Skill();

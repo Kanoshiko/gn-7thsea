@@ -1,34 +1,34 @@
 [
   {
-    "key": "avallon" ,
+    "key": "avallon",
     "name": "Avallon"
   },
   {
-    "key": "castille" ,
+    "key": "castille",
     "name": "Castille"
   },
   {
-    "key": "eisen" ,
+    "key": "eisen",
     "name": "Eisen"
   },
   {
-    "key": "montaigne" ,
+    "key": "montaigne",
     "name": "Montaigne"
   },
   {
-    "key": "ussuran" ,
+    "key": "ussuran",
     "name": "Ussuran"
   },
   {
-    "key": "vendel" ,
+    "key": "vendel",
     "name": "Vendel"
   },
   {
-    "key": "vesten" ,
+    "key": "vesten",
     "name": "Vesten"
   },
   {
-    "key": "vodacce" ,
+    "key": "vodacce",
     "name": "Vodacce"
   }
 ]

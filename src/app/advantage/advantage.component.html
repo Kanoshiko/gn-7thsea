@@ -1,6 +1,6 @@
 <div class="starter-template">
   <h1>{{title}}</h1>
-  
+
   <br/>
 
   <table class="table">
@@ -13,10 +13,14 @@
     <tr *ngFor='let advantage of (advantages|async)'>
       <td>{{advantage.name}}</td>
       <td>{{advantage.cost}}</td>
-      <td><pre>{{advantage.description}}</pre></td>
       <td>
-        <a class="btn btn-primary btn-sm" routerLink="/advantages/{{advantage._id.$oid}}/edit" routerLinkActive="active">Modifier</a>
-        <a class="btn btn-danger btn-sm" routerLink="/advantages/{{advantage._id.$oid}}/delete" routerLinkActive="active">Suppprimer</a>
+        <pre>{{advantage.description}}</pre>
+      </td>
+      <td>
+        <a class="btn btn-primary btn-sm" routerLink="/advantages/{{advantage._id.$oid}}/edit"
+           routerLinkActive="active">Modifier</a>
+        <a class="btn btn-danger btn-sm" routerLink="/advantages/{{advantage._id.$oid}}/delete"
+           routerLinkActive="active">Suppprimer</a>
       </td>
     </tr>
   </table>

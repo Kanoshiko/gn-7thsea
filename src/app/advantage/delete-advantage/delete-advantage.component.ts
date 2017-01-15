@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Advantage } from '../../shared/entity/advantage'
 import { AdvantageService } from '../../shared/service/advantage.service';
-import { Http, Response, Headers } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-delete-advantage',

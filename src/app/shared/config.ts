@@ -1,2 +1,2 @@
 export const API_URL = 'https://api.mlab.com/api/1/databases/sevensea/collections/';
-export const PARAMS_API_URL = '?apiKey=odZ5zYKLKF5Ium0UVErHRa3ZhYdmyA2K';
+export const PARAMS_API_URL = '?apiKey=aGaPXl3Z7AEh9RlXDnxDuavM6IXdU3V9';

@@ -1,7 +1,7 @@
-import { PipeTransform, Pipe } from '@angular/core';
+import {PipeTransform, Pipe} from '@angular/core';
 //import 'showdown/dist/showdown';
 
-@Pipe({ name: 'markdown' })
+@Pipe({name: 'markdown'})
 export class MarkdownPipe implements PipeTransform {
   transform(value, args) {
     const showdown = require('showdown');
