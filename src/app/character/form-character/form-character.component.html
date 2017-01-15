@@ -2,41 +2,58 @@
   <em>Budget</em> : {{character.budget}} points
 </div>
 
-<form novalidate (ngSubmit)="validate()" #characterForm="ngForm">
+<form novalidate (ngSubmit)="validate()" #characterForm="ngForm" class="form">
   <div id="accordion" role="tablist" aria-multiselectable="true">
     <div class="card">
       <div class="card-header" role="tab" id="headingGeneral">
         <h5 class="mb-0">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapseGeneral" aria-expanded="true"  aria-controls="collapseGeneral">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseGeneral" aria-expanded="true"
+             aria-controls="collapseGeneral">
             Informations générales
           </a>
         </h5>
       </div>
       <div id="collapseGeneral" class="collapse in" role="tabpanel" aria-labelledby="headingGeneral">
         <div class="card-block">
-          <div class="form-group" [class.has-error]="!playerName.valid && playerName.dirty">
-            <label class="control-label" for="playerName">Nom du joueur</label>
-            <input type="text" id="playerName" name="playerName" class="form-control"
-              required [(ngModel)]="character.playerName" #playerName="ngModel">
-          </div>
 
-          <div class="form-group" [class.has-error]="!name.valid && name.dirty">
-            <label class="control-label" for="name">Nom</label>
-            <input type="text" id="name" name="name" class="form-control"
-              required [(ngModel)]="character.name" #name="ngModel">
-          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group" [class.has-error]="!playerName.valid && playerName.dirty">
+                <label class="control-label" for="playerName">Nom du joueur</label>
+                <input type="text" id="playerName" name="playerName" class="form-control"
+                       required [(ngModel)]="character.playerName" #playerName="ngModel">
+              </div>
 
-          <div class="form-group" [class.has-error]="!nationality.valid && nationality.dirty">
-            <label class="control-label" for="nationality">Nationalité</label>
-            <select class="form-control" name="select" required [(ngModel)]="character.nationality" #nationality="ngModel">
-              <option *ngFor="let nationality of (nationalities|async)" value="{{nationality.key}}">{{nationality.name}}</option>
-            </select>
+              <div class="form-group" [class.has-error]="!playerEmail.valid && playerEmail.dirty">
+                <label class="control-label" for="playerEmail">Email du joueur</label>
+                <input type="text" id="playerEmail" name="playerEmail" class="form-control"
+                       required [(ngModel)]="character.playerEmail" #playerName="ngModel">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group" [class.has-error]="!name.valid && name.dirty">
+                <label class="control-label" for="name">Nom</label>
+                <input type="text" id="name" name="name" class="form-control"
+                       required [(ngModel)]="character.name" #name="ngModel">
+              </div>
+
+              <div class="form-group" [class.has-error]="!nationality.valid && nationality.dirty">
+                <label class="control-label" for="nationality">Nationalité</label>
+                <select class="form-control" name="select" required [(ngModel)]="character.nationality"
+                        #nationality="ngModel">
+                  <option *ngFor="let nationality of (nationalities|async)" value="{{nationality.key}}">
+                    {{nationality.name}}
+                  </option>
+                </select>
+              </div>
+            </div>
           </div>
 
           <div class="form-group" [class.has-error]="!background.valid && background.dirty">
             <label class="control-label" for="background">Historique</label>
             <textarea id="background" name="background" class="form-control"
-              required [(ngModel)]="character.background" #background="ngModel">
+                      required [(ngModel)]="character.background" #background="ngModel">
             </textarea>
           </div>
         </div>
@@ -46,7 +63,8 @@
     <div class="card">
       <div class="card-header" role="tab" id="headingSkill">
         <h5 class="mb-0">
-          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSkill" aria-expanded="false" aria-controls="collapseSkill">
+          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSkill"
+             aria-expanded="false" aria-controls="collapseSkill">
             Compétences
           </a>
         </h5>
@@ -54,11 +72,13 @@
       <div id="collapseSkill" class="collapse" role="tabpanel" aria-labelledby="headingSkill">
         <div class="card-block">
           <table class="table">
-            <tr *ngFor="let skill of character.skills" >
+            <tr *ngFor="let skill of character.skills">
               <td width="70%" *ngIf="character.hasThisSkill(skill)">
                 <h3>{{skill.name}}</h3>
                 <div [innerHTML]="skill.description|markdown"></div>
-                <button class="btn btn-danger btn-sm" (click)="character.removeSkill(skill)" *ngIf="character.hasThisSkill(skill)">Supprimer</button>
+                <button class="btn btn-danger btn-sm" (click)="character.removeSkill(skill)"
+                        *ngIf="character.hasThisSkill(skill)">Supprimer
+                </button>
               </td>
             </tr>
           </table>
