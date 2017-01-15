@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Skill } from '../../../shared/entity/skill';
-import { Character } from '../../../shared/entity/character';
-import { SkillService } from '../../../shared/service/skill.service';
-import { CharacterService } from '../../../shared/service/character.service';
-import { Http, Response, Headers } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+import {Component, OnInit} from '@angular/core';
+import {Skill} from '../../../shared/entity/skill';
+import {Character} from '../../../shared/entity/character';
+import {SkillService} from '../../../shared/service/skill.service';
+import {CharacterService} from '../../../shared/service/character.service';
+import {Observable} from 'rxjs/Rx';
 
 @Component({
   selector: 'app-popup-skill',

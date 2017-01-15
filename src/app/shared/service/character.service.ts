@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {Character} from '../entity/character';
-import {Http, Response, Headers} from '@angular/http';
-import {Observable} from 'rxjs/Rx';
+import { Injectable } from '@angular/core';
+import { Character } from '../entity/character';
+import { Http, Response, Headers } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
 import {API_URL, PARAMS_API_URL} from '../config';
 import 'rxjs/add/operator/map';
 
@@ -9,8 +9,7 @@ import 'rxjs/add/operator/map';
 export class CharacterService {
   private character: Character;
 
-  constructor(private _http: Http) {
-  }
+  constructor(private _http: Http) { }
 
   getCharacters(): Observable<Character[]> {
     return this._http.get(`${API_URL}/characters${PARAMS_API_URL}`)
@@ -22,13 +21,13 @@ export class CharacterService {
   postCharacter(character: Character) {
     const headers = new Headers();
     headers.set('Content-Type', 'application/json');
-    return this._http.post(`${API_URL}/characters${PARAMS_API_URL}`, JSON.stringify(character), {headers});
+    return this._http.post(`${API_URL}/characters${PARAMS_API_URL}`, JSON.stringify(character), { headers });
   }
 
   putCharacter(character: Character) {
     const headers = new Headers();
     headers.set('Content-Type', 'application/json');
-    return this._http.put(`${API_URL}/characters${PARAMS_API_URL}&q={"_id":${character._id.$oid}}`, JSON.stringify(character), {headers});
+    return this._http.put(`${API_URL}/characters${PARAMS_API_URL}&q={"_id":${character._id.$oid}}`, JSON.stringify(character), { headers });
   }
 
   getCharacter(id: string) {
@@ -46,6 +45,7 @@ export class CharacterService {
     if (id) {
       this.getCharacter(id).subscribe(character => this.character = character);
     }
+
     return this.character;
   }
 }
