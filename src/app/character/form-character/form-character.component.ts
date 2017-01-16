@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params} from '@angular/router';
 import {Nationality} from '../../shared/entity/nationality';
 import {NationalityService} from '../../shared/service/nationality.service';
 import {CharacterService} from '../../shared/service/character.service';
@@ -12,20 +12,21 @@ import {Observable} from 'rxjs/Rx';
 })
 export class FormCharacterComponent implements OnInit {
   private character;
-  private nationalities: Observable<Nationality[]>;
+  private nationalities: Nationality[];
 
   constructor(private route: ActivatedRoute,
               private characterService: CharacterService,
-              private nationalityService: NationalityService,
-              private router: Router) {
+              private nationalityService: NationalityService) {
   }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      this.character = this.characterService.newCharacter(params['id']);
+      this.character = this.characterService.loadCharacter(params['id'])
+        .subscribe(character => this.character = character);
     });
 
-    this.nationalities = this.nationalityService.getNationalities();
+    this.nationalityService.getNationalities()
+      .subscribe(nationalities => this.nationalities = nationalities);
   }
 
   validate(): void {

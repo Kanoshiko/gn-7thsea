@@ -11,7 +11,7 @@ import {Observable} from 'rxjs/Rx';
   styleUrls: ['./popup-skill.component.css']
 })
 export class PopupSkillComponent implements OnInit {
-  private skills: Observable<Skill[]>;
+  private skills: Skill[];
   private character: Character;
 
   constructor(
@@ -20,7 +20,7 @@ export class PopupSkillComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.character = this.characterService.newCharacter();
-    this.skills = this.skillService.getSkills();
+    this.characterService.loadCharacter().subscribe(character => this.character = character);
+    this.skillService.getSkills().subscribe(skills => this.skills = skills);
   }
 }

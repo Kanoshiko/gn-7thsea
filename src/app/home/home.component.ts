@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router';
+import {Router} from '@angular/router';
+import {CharacterService} from '../shared/service/character.service';
 
 @Component({
   selector: 'app-home',
@@ -11,13 +12,15 @@ export class HomeComponent implements OnInit {
 
   title = '7th Sea - Générateur de personnage';
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private characterService: CharacterService) {
   }
 
   ngOnInit() {
   }
 
   loadCharacter() {
-    this.router.navigateByUrl(`/character/${this.idChar}/edit`).then();
+    this.characterService.loadCharacter(this.idChar);
+    this.router.navigateByUrl(`/character/${this.idChar}/edit`);
   }
 }

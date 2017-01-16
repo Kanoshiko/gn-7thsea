@@ -10,7 +10,7 @@
       </div>
       <div class="modal-body">
         <table class="table">
-          <tr *ngFor="let skill of (skills|async)">
+          <tr *ngFor="let skill of skills">
             <td *ngIf="!character.hasThisSkill(skill)">
               <h3>{{skill.name}}</h3>
               <div [innerHTML]="skill.description|markdown"></div>
