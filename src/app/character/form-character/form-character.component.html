@@ -71,7 +71,7 @@
               <td width="70%" *ngIf="character.hasThisSkill(skill)">
                 <h3>{{skill.name}}</h3>
                 <div [innerHTML]="skill.description|markdown"></div>
-                <button class="btn btn-danger btn-sm" (click)="character.removeSkill(skill)" *ngIf="character.hasThisSkill(skill)">Supprimer</button>
+                <button class="btn btn-danger btn-sm" (click)="character.removeSkill(skill)">Supprimer</button>
               </td>
             </tr>
           </table>
