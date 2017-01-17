@@ -11,8 +11,8 @@ import {Observable} from 'rxjs/Rx';
   styleUrls: ['./popup-skill.component.css']
 })
 export class PopupSkillComponent implements OnInit {
-  private skills: Skill[];
-  private character: Character;
+  private skills: Skill[] = [];
+  private character = new Character();
 
   constructor(
     private skillService: SkillService,

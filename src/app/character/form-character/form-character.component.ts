@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {Nationality} from '../../shared/entity/nationality';
+import {Character} from '../../shared/entity/character';
 import {NationalityService} from '../../shared/service/nationality.service';
 import {CharacterService} from '../../shared/service/character.service';
 import {Observable} from 'rxjs/Rx';
+import {Skill} from '../../shared/entity/skill';
 
 @Component({
   selector: 'app-form-character',
@@ -11,8 +13,8 @@ import {Observable} from 'rxjs/Rx';
   styleUrls: ['./form-character.component.css']
 })
 export class FormCharacterComponent implements OnInit {
-  private character;
-  private nationalities: Nationality[];
+  private character = new Character();
+  private nationalities: Nationality[] = [];
 
   constructor(private route: ActivatedRoute,
               private characterService: CharacterService,
@@ -21,7 +23,7 @@ export class FormCharacterComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      this.character = this.characterService.loadCharacter(params['id'])
+      this.characterService.loadCharacter(params['id'])
         .subscribe(character => this.character = character);
     });
 
