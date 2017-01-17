@@ -23,7 +23,7 @@ export class Character {
   public advantages: Array<Advantage> = [];
   public hasCombatSchool: boolean = false;
 
-  public actionPoint(): number {
+  actionPoint(): number {
     if (this.hasCombatSchool) {
       return 2 * this.physical + this.will;
     } else {
